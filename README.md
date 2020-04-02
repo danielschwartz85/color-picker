@@ -1,1 +1,1 @@
-# color-picker
+# Page for color and word random picker 
