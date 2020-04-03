@@ -74,7 +74,8 @@
                 "‫ש‪.‬נ‪.‬ה‬",
                 "‫ש‪.‬ח‪.‬ר‬",
                 "‫ש‪.‬כ‪.‬ח‬"
-            ]
+            ],
+            "isDark": true
         },
         "אדום": {
             "code": "#d1232a",
@@ -194,7 +195,8 @@
             "words": [
                 "ב.נ.ה",
                 "י.ב.נ"
-            ]
+            ],
+            "isDark": true
         },
         "תכלת": {
             "code": "#6bcff6",
@@ -236,6 +238,8 @@
         const {code, name} = COLORS_ARRAY[colorindex]
         document.getElementById('color').style.backgroundColor = code
         document.getElementById('colorName').innerText = name
+        document.getElementById('colorName').style.color = isDark ? 'white' : 'black';
+        document.getElementById('word').style.color = isDark ? 'white' : 'black';
       }, colorSpeed)
     }
 
