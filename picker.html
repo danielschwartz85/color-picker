@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>בחירת צבעים</title>
+    <link rel="shortcut icon" href="eye.png">
   </head>
   <style>
     #root {
@@ -16,7 +17,7 @@
     #color{
       margin: auto;
       width: 70%;
-      height: 60vh;
+      height: 50vh;
       max-height: 50%;
       border: 3px solid grey;
       padding: 10px;
@@ -176,7 +177,8 @@
                 "‫ס‪.‬ג‪.‬ל‬",
                 "‫ר‪.‬פ‪.‬א‬",
                 "‫ר‪.‬פ‪.‬ה‬"
-            ]
+            ],
+            'isDark': true
         },
         "ירוק כהה": {
             "code": "#026a43",
@@ -188,7 +190,8 @@
                 "‫ש‪.‬ל‪.‬ב‬",
                 "‫‫ש‪.‬ל‪.‬ו‬",
                 "‫ת‪.‬ב‪.‬ע‬"
-            ]
+            ],
+            'isDark': true
         },
         "כחול": {
             "code": "#253f8e",
@@ -228,18 +231,19 @@
 
   <script>
     const wordSpeed = 200
-    const colorSpeed = 200
+    const colorSpeed = 500
     let intervalId;
 
     let colorindex = -1
     function startColorShuffel() {
       intervalId = window.setInterval(() => {
         colorindex = (colorindex + 1) % COLORS_ARRAY.length
-        const {code, name} = COLORS_ARRAY[colorindex]
+        const {code, name, isDark} = COLORS_ARRAY[colorindex]
         document.getElementById('color').style.backgroundColor = code
-        document.getElementById('colorName').innerText = name
-        document.getElementById('colorName').style.color = isDark ? 'white' : 'black';
-        document.getElementById('word').style.color = isDark ? 'white' : 'black';
+        const colorName = document.getElementById('colorName')
+        colorName.innerText = name
+        colorName.style.color = isDark ? '#f5f2d0' : 'black';
+        document.getElementById('word').style.color = isDark ? '#f5f2d0' : 'black';
       }, colorSpeed)
     }
 
