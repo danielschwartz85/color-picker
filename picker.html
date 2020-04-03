@@ -12,7 +12,7 @@
     }
     h1{
       color: grey;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
     }
     #color{
       margin: auto;
@@ -22,6 +22,7 @@
       border: 3px solid grey;
       padding: 10px;
       background-color: hotpink;
+      border-radius: 4px;
     }
     #word {
       text-align: center;
@@ -29,6 +30,9 @@
     #colorName {
       margin-top: 14vh;
       text-align: center;
+    }
+    #speedHeader {
+      margin-top: 10px;
     }
   </style>
   <script>
@@ -230,8 +234,8 @@
   </script> 
 
   <script>
-    const wordSpeed = 200
-    const colorSpeed = 200
+    let wordSpeed = 200
+    let colorSpeed = 200
     let intervalId;
 
     let colorindex = -1
@@ -257,6 +261,16 @@
       }, wordSpeed)
     }
 
+    function selectSpeed() {
+      const speed = 1050 - document.getElementById('speed').value
+      wordSpeed = colorSpeed = speed
+      // reset
+      window.clearInterval(intervalId)
+      document.getElementById('word').innerText = ''
+      state = 'colorShuffel'
+      startColorShuffel()
+    }
+
     let state = 'colorShuffel'
     function changeState() {
       if (state == 'colorShuffel') {
@@ -280,6 +294,10 @@
       <div id="color" onclick="changeState()">
         <h2 id="colorName"></h3>
         <h4 id="word"></h4>
+      </div>
+      <div>
+        <div id="speedHeader">מהירות</div>
+        <input id="speed" type="range" min="50" max="1000" value="850" onchange="selectSpeed()">
       </div>
     </div>
   </body>
