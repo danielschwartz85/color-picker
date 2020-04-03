@@ -262,7 +262,7 @@
     }
 
     function selectSpeed() {
-      const speed = 1050 - document.getElementById('speed').value
+      const speed = 1550 - document.getElementById('speed').value
       wordSpeed = colorSpeed = speed
       // reset
       window.clearInterval(intervalId)
@@ -297,7 +297,7 @@
       </div>
       <div>
         <div id="speedHeader">מהירות</div>
-        <input id="speed" type="range" min="50" max="1000" value="850" onchange="selectSpeed()">
+        <input id="speed" type="range" min="50" max="1500" value="1350" onchange="selectSpeed()">
       </div>
     </div>
   </body>
